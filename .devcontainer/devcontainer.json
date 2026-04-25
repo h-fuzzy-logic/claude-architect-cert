@@ -1,0 +1,8 @@
+{
+  "name": "claude-architect-cert",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
+  "postCreateCommand": "echo 'Devcontainer is working!'"
+}
