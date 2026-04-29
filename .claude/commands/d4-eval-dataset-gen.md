@@ -1,0 +1,1 @@
+Help me build an alignment eval dataset generator using the Anthropic SDK in `d4_prompts/arena/eval_dataset_gen/`. It should use few-shot prompting with 3+ examples, extract structured output via tool_use with a strict JSON schema, and run a validation-retry loop that logs each failure reason and flags borderline items for human review.

@@ -1,0 +1,1 @@
+Help me build a multi-agent safety evaluator in `d1_agentic/arena/safety_evaluator/`: a coordinator agent decomposes a model behavior investigation into subtasks — one subagent probes with adversarial prompts, another classifies responses, a third aggregates and flags anomalies. Walk me through the hub-and-spoke architecture and proper stop_reason handling.

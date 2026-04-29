@@ -1,0 +1,1 @@
+Help me build a long-horizon interpretability research assistant that handles context degradation gracefully. in `d5_context/arena/interp_assistant/`. It needs progressive summarization that preserves information provenance, context positioning strategies for activation data, and escalation to human review when synthesis confidence drops. What are the anti-patterns to avoid?

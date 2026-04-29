@@ -1,0 +1,1 @@
+Walk me through setting up an MCP server configuration for a research project, connecting it to Claude Desktop, and distributing tools across multiple agents — each with 4-5 tools max. in `d2_tools/cert/mcp_config/`.Show me how to use Claude built-in tools like Read, Write, Bash, and Grep alongside custom MCP tools.

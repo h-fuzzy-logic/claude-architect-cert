@@ -1,0 +1,1 @@
+Help me design a JSON schema for a structured data extraction tool that captures: the extracted behavior, a confidence score per field, a list of flags for human review, and an isRetryable field for validation failures in `d4_prompts/arena/behavior_extraction/`. Show me how to implement the validation-retry loop that uses this schema.

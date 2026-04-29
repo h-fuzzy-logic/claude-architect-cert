@@ -1,0 +1,1 @@
+Help me design an MCP server that exposes interpretability operations as tools: activation extraction, linear probe training, and attention head visualization in `d2_tools/arena/interp_mcp_server/`. What should the tool descriptions look like, and how do I structure error responses?

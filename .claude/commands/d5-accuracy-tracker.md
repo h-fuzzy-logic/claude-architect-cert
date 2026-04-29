@@ -1,0 +1,1 @@
+Help me build an eval result tracker that catches masked failures: instead of tracking only aggregate accuracy, it breaks down accuracy per behavior category, per model, and per prompt template. in `d5_context/cert/accuracy_tracker/`. Show me how to detect when a high overall score is hiding systematic failures on a specific subcategory.
