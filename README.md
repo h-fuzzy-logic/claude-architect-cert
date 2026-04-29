@@ -1,11 +1,11 @@
-# Claude Architect Cert + AI Safety Research
+# Claude Architect Certification + AI Safety Research
 
 A dual-purpose repo, studying for the **Claude Certified Architect** [exam](https://claudecertifications.com/claude-certified-architect/study-guide) while combining AI safety research topics from the **ARENA curriculum** (Alignment Research
 Engineer Accelerator) [GitHub repo](https://github.com/callummcdougall/ARENA_3.0). 
 
 ---
 
-## Why this repo exists
+## Reason for repo
 
 Most cert prep is abstract or simply memorization. I really wanted to the learn the Claude Architect topics and use them in code. There is some overlap between the exam domains and the ARENA repo. Where ARENA has no cert equivalent (and vice versa), standalone exercises fill the gap. 
 
@@ -46,7 +46,7 @@ both ARENA research projects and cert-specific exercises.
 
 ## How the Domains Map to ARENA
 
-Some cert domains map directly to ARENA chapters. Others have no ARENA equivalent and are covered by standalone exercises.
+Some cert domains map directly to ARENA chapters. Others have no ARENA equivalent and are covered by standalone exercises.  See [mapping summary](/docs/domain-map.md).
 
 
 ---

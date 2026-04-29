@@ -1,0 +1,1 @@
+Help me build a production-quality CLAUDE.md hierarchy for my ARENA research repo. I want a root CLAUDE.md with project conventions, a .claude/rules/agents.md scoped to src/agents/, and a .claude/rules/evals.md scoped to src/evals/. Walk me through what should go in each level and how path-scoped rules work.

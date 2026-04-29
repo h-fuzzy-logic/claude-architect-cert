@@ -1,0 +1,1 @@
+Help me set up a CI/CD pipeline for my ARENA research repo that uses Claude Code in non-interactive mode with the -p flag and --output-format json in `d3_claude_code/cert/ci_pipeline/`. I want it to automatically review any new experiment code committed to the repo, using a separate session for the reviewer pass to avoid same-session bias.
