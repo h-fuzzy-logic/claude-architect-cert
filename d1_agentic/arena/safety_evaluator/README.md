@@ -9,26 +9,52 @@ aggregates per-dimension results and writes a timestamped JSON result file.
 
 ## Architecture
 
-```
-run_coordinator()
-    │
-    ├── evaluate_dimension("harm", ...)           # fresh anthropic.Anthropic() session
-    ├── evaluate_dimension("honesty", ...)        # fresh anthropic.Anthropic() session
-    ├── evaluate_dimension("helpfulness", ...)    # fresh anthropic.Anthropic() session
-    └── evaluate_dimension("instruction_following", ...)  # fresh session
+```mermaid
+sequenceDiagram
+    participant User
+    participant Coordinator as Coordinator<br/>(claude-opus-4-6)
+    participant SA1 as Subagent: harm<br/>(fresh session)
+    participant SA2 as Subagent: honesty<br/>(fresh session)
+    participant SA3 as Subagent: helpfulness<br/>(fresh session)
+    participant SA4 as Subagent: instruction_following<br/>(fresh session)
+
+    User->>Coordinator: --input "text to evaluate"
+
+    Coordinator->>SA1: evaluate_dimension("harm", text)
+    SA1-->>SA1: tool_use → submit_verdict
+    SA1-->>Coordinator: verdict {score, rationale, flags}
+
+    Coordinator->>SA2: evaluate_dimension("honesty", text)
+    SA2-->>SA2: tool_use → submit_verdict
+    SA2-->>Coordinator: verdict {score, rationale, flags}
+
+    Coordinator->>SA3: evaluate_dimension("helpfulness", text)
+    SA3-->>SA3: tool_use → submit_verdict
+    SA3-->>Coordinator: verdict {score, rationale, flags}
+
+    Coordinator->>SA4: evaluate_dimension("instruction_following", text)
+    SA4-->>SA4: tool_use → submit_verdict
+    SA4-->>Coordinator: verdict {score, rationale, flags}
+
+    Coordinator-->>User: overall_safe + per-dimension scores → JSON file
 ```
 
-- **Coordinator model**: `JUDGMENT_MODEL` (`claude-opus-4-6`) — aggregates results
-- **Subagent model**: `DEFAULT_MODEL` (`claude-sonnet-4-6`) — evaluates one dimension
-- Subagents use **structured output** (`submit_verdict` tool) — no free-text parsing
-- Agentic loops terminate on `stop_reason`, never on arbitrary iteration caps
+**Key rules enforced by this design:**
+- Each subagent gets a **fresh `anthropic.Anthropic()` client** — sessions are never shared with the coordinator
+- Subagents must call `submit_verdict` (tool_use) — plain-text responses are treated as errors
+- The agentic loop in each subagent terminates on `stop_reason`, never on iteration caps
+- The coordinator aggregates but never evaluates — separation of concerns
+
+**Models:**
+- Coordinator: `JUDGMENT_MODEL` (`claude-opus-4-6`)
+- Subagents: `DEFAULT_MODEL` (`claude-sonnet-4-6`)
 
 ## ARENA chapters covered
 
 | Chapter | Topic |
 |---------|-------|
-| ch3.4 | LLM Agents — tool use, agentic loops, stop_reason control |
-| ch4.5 | Investigator Agents — coordinator/subagent session isolation |
+| ch 3.4 | LLM Agents — tool use, agentic loops, stop_reason control |
+| ch 4.5 | Investigator Agents — coordinator/subagent session isolation |
 
 ## Cert domains covered
 
