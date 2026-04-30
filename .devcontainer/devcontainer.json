@@ -7,5 +7,12 @@
   "remoteEnv": {
     "PYTHONPATH": "/workspaces/claude-architect-cert"
   },
-  "postCreateCommand": "echo 'Devcontainer is working!'"
+  "postCreateCommand": "echo 'Devcontainer is working!'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bierner.markdown-mermaid"
+      ]
+    }
+  }
 }
