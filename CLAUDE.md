@@ -63,7 +63,8 @@ project-root/
 
 ## Environment setup
 - Python env: `uv venv && source .venv/bin/activate`
-- Install deps: `pip install -r requirements.txt`
+- Install deps: `uv pip install -r requirements.txt`
+- Set path: `export PYTHONPATH=/workspaces/claude-architect-cert` (add to ~/.bashrc to persist)
 - Run tests: `pytest tests/ -v`
 - Integration tests: `INTEGRATION=1 pytest tests/integration/ -v`
 - Lint: `ruff check . && ruff format .`
